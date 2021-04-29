@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div class="box box-solid bg-light-blue-gradient">
+    <div class="box-header">
+      <!-- tools box -->
+      <div class="pull-left box-tools">
+
+      </div><!-- /. tools -->
+
+      <i class="fa fa-map-marker"></i>
+      <h3 class="box-title">
+        توزيع الخدمات على الخريطة
+      </h3>
+    </div>
+    <div class="box-body">
+      <div id="map" style="height: 400px; width: 100%;"></div>
+    </div><!-- /.box-body-->
+    <div class="box-footer no-border">
+      <div class="row">
+       
+        </div><!-- ./col -->
+      </div><!-- /.row -->
+    </div>
+  </div>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkcXBxLeAKoqBx_ODqBUX0bvgP8_NswbI&callback=initMap&libraries=&v=weekly">
+  </script>
+
+<script>
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 31.501548, lng: 34.454571},
+    zoom: 8,
+  });
+
+
+    var proviederUser =[
+     
+      
+        {
+      position: new google.maps.LatLng(31.501548,34.454571),
+      type: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+    },
+   
+    ];
+    // Create markers.
+  for (let i = 0; i < proviederUser.length; i++) {
+    const marker = new google.maps.Marker({
+      position: proviederUser[i].position,
+      icon: proviederUser[i].type,
+      map: map,
+    });
+  }
+
+
+}
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+
+ 
